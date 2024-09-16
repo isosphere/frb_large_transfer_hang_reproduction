@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     print("Making blob.");
     Uint8List blob = Uint8List(1024 * 1024 * 10); // 10MB
     print("Blob made, sending to Rust."); // this occurs immediately
-    print("The current time is ${DateTime.now()}"); 
+    print("The current epoch time is: ${DateTime.now().millisecondsSinceEpoch/1000}"); 
     return doNothingWithBlob(blob: blob); // this hangs the UI for about 10 seconds
   }
 
