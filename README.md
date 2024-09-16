@@ -1,16 +1,4 @@
 # frb_large_transfer_hang_reproduction
+A reproduction project for https://github.com/fzyzcjy/flutter_rust_bridge/issues/2301
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is a WASM/web issue. In my experience CORS must be appeased to run this application in Chromium. To that end I use `mkcert` to create a certificate for the hostname of my machine and then use [local-ssl-proxy](https://www.npmjs.com/package/local-ssl-proxy) with that certificate (which I mark trusted in Chromium). Then I visit https://hostname:port rather than the default insecure page that opens up when using `flutter run -d chrome --web-port=8080 --web-hostname=hostname --web-header=Cross-Origin-Opener-Policy=same-origin --web-header=Cross-Origin-Embedder-Policy=require-corp`
