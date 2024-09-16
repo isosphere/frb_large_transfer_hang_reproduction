@@ -27,8 +27,9 @@ class _MyAppState extends State<MyApp> {
   Future<String?> _processBlob() async {
     print("Making blob.");
     Uint8List blob = Uint8List(1024 * 1024 * 10); // 10MB
-    print("Blob made, sending to Rust.");
-    return doNothingWithBlob(blob: blob);
+    print("Blob made, sending to Rust."); // this occurs immediately
+    print("The current time is ${DateTime.now()}"); 
+    return doNothingWithBlob(blob: blob); // this hangs the UI for about 10 seconds
   }
 
   void buttonPress() {

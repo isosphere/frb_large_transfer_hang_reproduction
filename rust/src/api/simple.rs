@@ -1,5 +1,9 @@
+use gloo_console::info;
+use web_time::SystemTime;
+
 #[flutter_rust_bridge::frb(sync)] // Synchronous mode for simplicity of the demo
 pub fn do_nothing_with_blob(blob: Vec<u8>) -> String {
+    info!(format!("called at {:?}", SystemTime::now()));
     format!("Hello, I didn't even look at the blob! Nyah!")
 }
 

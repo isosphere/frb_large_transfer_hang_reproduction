@@ -7,4 +7,6 @@ edition = "2021"
 crate-type = ["cdylib", "staticlib"]
 
 [dependencies]
+gloo-console = "0.3.0"
 flutter_rust_bridge = "=2.4.0"
+web-time = "1.1"
